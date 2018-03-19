@@ -1,284 +1,219 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>The Train Scheduler</title>
     <!--Links-->
-    <link rel="shortcut icon" href="images/favicon.ico" type="favicon/image">
+    <link rel="shortcut icon" href="assets/images/train2.ico" type="favicon/image">
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+  </head>
+  <body>
+    
     <!--Bootstrap Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-              <div>
-                  <!--Body Container-->
-                <div class="container-fluid">
-                    <!--Carousel-->
-                    <div class="row">
-                  <div class="col-md-12 nopadding">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                  <div class="carousel-item active">
-                                    <img class="d-block w-100" src="assets/images/train1.jpg" alt="First slide">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/cool.jpg" alt="Second slide">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/dest.jpg" alt="Third slide">
-                                  </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="sr-only">Next</span>
-                                </a>
-                              </div>
-
-                  </div>
-              </div>
-              <!--Output Index Card-->
-              <div class="row">
-                  <div class="col-md-8">
-                        <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                  <li class="breadcrumb-item active" aria-current="page">Current Employees</li>
-                                </ol>
-                              </nav>
-                        <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              
-                              <table class="table">
-                                <thead class="thead-light">
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-
-                  </div>
-
-              </div>
-              <!--User Input Area-->
-              <div class="row">
-                  <div class="col-md-8">
-                        <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                  <li class="breadcrumb-item active" aria-current="page">Current Employees</li>
-                                </ol>
-                              </nav>
-                               <!--Form-->
-              <form>
-                    <div class="form-group">
-                      <label for="employeeName">Employee Name</label>
-                      <input type="text" class="form-control" id="employeeName">
-                    </div>
-                    <div class="form-group">
-                      <label for="role">Role</label>
-                      <input type="text" class="form-control" id="role">
-                    </div>
-                    <div class="form-group">
-                      <label for="startDate">Start Date (DD/MM/YY - ex: 01/01/89)</label>
-                      <input type="text" class="form-control" id="startDate">
-                    </div>
-                    <div class="form-group">
-                      <label for="monthlyRate">Monthly Rate</label>
-                      <input type="text" class="form-control" id="monthlyRate">
-                    </div>
-                    <input class="btn btn-primary" type="submit" value="Submit" id="addEmployee">
-                  </form>
-
-                  </div>
-                </div>
-            </div>
-            
-            <!--Footer is here-->
-        <footer class="page-footer font-small stylish-color-dark pt-4 mt-4 sticky-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+      <a class="navbar-brand" href="#"> <h1 class='deepshadow'>Train Scheduler</h1></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.amtrak.com/train-schedules-timetables">Amtrak</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/CKalla87">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!--Body Bootstrap Grid Container-->
+    <div class="container-fluid">
       
-            <!--Footer Links-->
-            <div class="container text-center text-md-left">
-        
-                <!-- Footer links -->
-                <div class="row text-center text-md-left mt-3 pb-3">
-        
-                    <!--First column-->
-                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Company name</h6>
-                        <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                    <!--/.First column-->
-        
-                    <hr class="w-100 clearfix d-md-none">
-        
-                    <!--Second column-->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
-                        <p><a href="#!">MDBootstrap</a></p>
-                        <p><a href="#!">MDWordPress</a></p>
-                        <p><a href="#!">BrandFlow</a></p>
-                        <p><a href="#!">Bootstrap Angular</a></p>
-                    </div>
-                    <!--/.Second column-->
-        
-                    <hr class="w-100 clearfix d-md-none">
-        
-                    <!--Third column-->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
-                        <p><a href="#!">Your Account</a></p>
-                        <p><a href="#!">Become an Affiliate</a></p>
-                        <p><a href="#!">Shipping Rates</a></p>
-                        <p><a href="#!">Help</a></p>
-                    </div>
-                    <!--/.Third column-->
-        
-                    <hr class="w-100 clearfix d-md-none">
-        
-                    <!--Fourth column-->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                        <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
-                        <p><i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
-                        <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
-                        <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
-                    </div>
-                    <!--/.Fourth column-->
-        
-                </div>
-                <!-- Footer links -->
-        
-                <hr>
-        
-                <div class="row py-3 d-flex align-items-center">
-        
-                    <!--Grid column-->
-                    <div class="col-md-8 col-md-12">
-        
-                        <!--Copyright-->
-                        <p class="text-center grey-text">© 2018 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"><strong> MDBootstrap.com</strong></a></p>
-                        <!--/.Copyright-->
-        
-                    </div>
-                    <!--Grid column-->
-        
-                    <!--Grid column-->
-                    <div class="col-md-4 col-lg-4 ml-lg-0">
-        
-                        <!--Social buttons-->
-                        <div class="text-center text-md-right">
-                            <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-google-plus"></i></a></li>
-                                <li class="list-inline-item"><a class="btn-floating btn-sm rgba-white-slight mx-1"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                        <!--/.Social buttons-->
-        
-                    </div>
-                    <!--Grid column-->
-        
-                </div>
-        
+      <!--Bootstrap Carousel-->
+      <div class="row">
+        <div class="col-md-12 nopadding">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="assets/images/train1.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="assets/images/cool.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="assets/images/dest.jpg" alt="Third slide">
+              </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!--Output Index Card-->
+      <div class="row" id="afterCarousel">
+        <div class="col-md-2" id="emptyDiv">
+
+        </div>
+
+        <!--Train Data Index-->
+        <div class="col-md-8" id="userIndex">
+          <div class="border border-secondary rounded">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h5 class="panel-title">Current Train</h5>
+              </div>
+              <table class="table text-center" id="trainTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Line</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         
-        </footer>
-        <!--/.Footer-->
-                        
+        <!--Empty Div-->
+        <div class="col-md-2" id="emptyDiv2">
 
+        </div>
+      </div>
+      
+      <!--User Input Area Row-->
+      <div class="row">
 
+        <!--Empty Div-->
+        <div class="col-md-2" id="emptyDiv3">
 
+        </div>
+        
+        <!--User Input Bootstap-->
+        <div class="col-md-8" id="userInput">
+          <div class="border border-secondary rounded">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h5 class="panel-title">Add a New Train</h5>
+              </div>
+              <div class="panel-body">
+                <!-- Entry Form -->
+                <form>
+                  <div class="form-group">
+                    <label for="">Train Name</label>
+                    <input type="text" class="form-control" id="trainName" placeholder="Pines Express">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Line</label>
+                    <input type="text" class="form-control" id="line" placeholder="Express Line">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="The Grand Canyon">
+                  </div>
+                  <div class="form-group">
+                    <label for="">First Train Time (HH:mm - military time)</label>
+                    <input type="text" class="form-control" id="trainTime" placeholder="00:00">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Frequency (min)</label>
+                    <input type="text" class="form-control" id="frequency" placeholder="00">
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="addTrainBtn">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--Empty Div-->
+        <div class="col-md-2" id="emptyDiv4">
 
-
-
-
-
-
-<!--Java Script Link-->
-<script tabindex="text/javascript" src="assets/javascript/app.js"></script>
-</body>
+        </div>
+      </div>
+    </div>
+    
+    <!--Bootstap Footer-->
+    <footer class="page-footer font-small stylish-color-dark pt-4 mt-4 sticky-bottom">
+       <!--Footer Links-->
+       <div class="container text-center text-md-left">
+         <!-- Footer links -->
+         <div class="row text-center text-md-left mt-3 pb-3">
+           <!--First column-->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+             <h6 class="text-uppercase mb-4 font-weight-bold"><h6 class='deepshadowFooter'>Train Scheduler</h6></h6>
+             <p>We are a one stop shop for all your scheduling needs.  Search the times and make a decision based on our accurate real time data tracker.</p>
+          </div>
+          <!--/.First column-->
+          <hr class="w-100 clearfix d-md-none">
+          <!--Second column-->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+            <p><a href="https://www.amtrak.com/train-schedules-timetables">Amtrak</a></p>
+            <p><a href="https://www.wanderu.com/en/train-tickets/us-az/tempe/">Wanderu</a></p>
+            <p><a href="http://www.raileurope-world.com/train-tickets/train-tickets/">RailEurope</a></p>
+            <p><a href="https://www.thetrainline.com/">Trainline</a></p>
+          </div>
+          <!--/.Second column-->
+          <hr class="w-100 clearfix d-md-none">
+          <!--Third column-->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+            <p><a href="https://www.ricksteves.com/travel-tips/transportation/trains/cost-maps">Train-Fare</a></p>
+            <p><a href="https://bookings.nswtrainlink.info/NASApp/Odyssey/booking/trainSearch.action">Destination Search</a></p>
+            <p><a href="https://www.valleymetro.org/fares">Valley Metro</a></p>
+            <p><a href="https://www.valleymetro.org/fare-faqs">Fare FAQs</a></p>
+          </div>
+          <!--/.Third column-->
+          <hr class="w-100 clearfix d-md-none">
+          <!--Fourth column-->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+            <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p><i class="fa fa-envelope mr-3"></i> info@gmail.com</p>
+            <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!--Grid column-->
+      <div class="footer-copyright py-3 text-center">
+        <!--Copyright-->
+        <a href="https://ckalla87.github.io/Responsive-Portfolio/"><img id="icon" src="assets/images/mysite.png" alt=""></a><a href="https://github.com/CKalla87"><img id="icon" src="assets/images/git.png" alt=""></a>
+        <p>&#64; Copyright 2018 Train Scheduler</p>
+      </div>
+    </footer>
+    
+    <!--Java Script Link-->
+    <script tabindex="text/javascript" src="assets/javascript/app.js"></script>
+  </body>  
 </html>
